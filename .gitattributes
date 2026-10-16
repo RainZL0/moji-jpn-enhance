@@ -1,0 +1,5 @@
+# Store text files in the repository with LF line endings
+* text=auto eol=lf
+
+# Keep CRLF for PowerShell scripts on Windows
+*.ps1 text eol=crlf

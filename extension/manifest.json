@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "MOJi Read-Aloud (local edge-tts)",
+  "version": "0.3.0",
+  "description": "Read sentence by sentence, switch sentences and loop on the Read-Aloud Study page. Other pages are left as they are; you can use the extension's right-click menu on them.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "offscreen",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://localhost/*",
+    "http://127.0.0.1/*",
+    "https://www.mojidict.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Japanese Read-Aloud"
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.mojidict.com/*"
+      ],
+      "js": [
+        "content.js",
+        "grammar.js",
+        "study-text.js",
+        "study-grammar.js",
+        "study-card.js",
+        "study.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "study.css",
+        "moji-frame.js"
+      ],
+      "matches": [
+        "https://www.mojidict.com/*"
+      ]
+    }
+  ]
+}

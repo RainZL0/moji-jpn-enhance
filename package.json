@@ -1,0 +1,10 @@
+{
+  "name": "moji-study",
+  "private": true,
+  "scripts": {
+    "test": "node --test \"tests/extension/*.test.js\""
+  },
+  "devDependencies": {
+    "happy-dom": "^20.14.5"
+  }
+}

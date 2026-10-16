@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+
+# Node
+node_modules/
+
+# Audio cache made by the server
+server/cache/
+
+# Test and lint caches
+.pytest_cache/
+.ruff_cache/
+.lycheecache
+
+# Local files that never go into git: personal notes, backups
+private/

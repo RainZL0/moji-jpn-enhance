@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8" />
+<link rel="stylesheet" href="popup.css" />
+<body>
+  <header>
+    <strong>Japanese Read-Aloud</strong>
+    <span id="conn" class="conn">Checking...</span>
+  </header>
+
+  <textarea id="text" rows="2" placeholder="Type text here to read it aloud; leave empty to read the text selected on the page"></textarea>
+  <div class="row">
+    <button id="read" class="primary">Read</button>
+    <button id="toggle" disabled>Pause</button>
+    <button id="stop" disabled>Stop</button>
+  </div>
+  <div id="status" class="status"></div>
+
+  <label>Voice
+    <select id="voice"></select>
+  </label>
+  <label class="check"><input type="checkbox" id="allVoices" /> Show voices for all languages</label>
+
+  <label>Speed <output id="rateOut"></output>
+    <input type="range" id="rate" min="-50" max="100" step="5" />
+  </label>
+  <label>Pitch <output id="pitchOut"></output>
+    <input type="range" id="pitch" min="-30" max="30" step="2" />
+  </label>
+  <label>Volume <output id="volumeOut"></output>
+    <input type="range" id="volume" min="-50" max="50" step="5" />
+  </label>
+
+  <fieldset>
+    <legend>Shadowing practice</legend>
+    <label class="inline">Read each part
+      <select id="repeat">
+        <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+        <option value="5">5</option>
+      </select> times
+    </label>
+    <label class="inline">Pause after reading
+      <select id="gap">
+        <option value="0">No pause</option>
+        <option value="1">As long as the audio</option>
+        <option value="1.5">1.5 times as long</option>
+        <option value="2">2 times as long</option>
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" id="split" /> Read one sentence at a time (when unchecked, short sentences are joined into one part)</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Study page and server</legend>
+    <label class="check"><input type="checkbox" id="readToEnd" /> When you click a word, read to the end of the text (when unchecked, read only to the end of that part)</label>
+    <label class="check"><input type="checkbox" id="autoRead" /> On the Read-Aloud Study page, read the whole text after "Translate and analyze"</label>
+    <label>Server address
+      <input type="text" id="server" spellcheck="false" />
+    </label>
+    <div id="serverErr" class="err"></div>
+  </fieldset>
+
+  <p class="hint">On other pages, select text and right-click "Read the selected text aloud" to read it.</p>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

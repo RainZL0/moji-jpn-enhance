@@ -1,0 +1,5 @@
+# Link check settings for lychee (https://lychee.cli.rs/). Run from the repository folder:
+#   lychee --offline .   local links and anchors (what ./test.ps1 runs)
+#   lychee .             web links too
+include_fragments = "anchor-only"
+exclude_path = ["node_modules", "server/.venv", "server/cache", ".pytest_cache", ".ruff_cache", "private"]
